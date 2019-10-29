@@ -37,9 +37,11 @@ public class MainActivity extends AppCompatActivity {
                     System.out.println(array);
                     for (int i = 0; i < array.length(); i++) {
 
-
+//                        NewsData news = new NewsData();
+//                        news.setData(array.getJSONObject(i));
+//                        newsData.add(news);
                     }
-
+//                    setView(newsData);
                 } catch (Exception e) {
                     System.out.println("Logged from JsonObjectRequest() in NewsRestApi.java: " + e);
                 }
