@@ -6,8 +6,7 @@ import android.os.Bundle;
 
 public class MainActivity extends AppCompatActivity {
 
-    public String baseUrl = ";
-    public String api = "";
+    public String baseUrl = "https://glacial-shelf-53509.herokuapp.com/employees";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
