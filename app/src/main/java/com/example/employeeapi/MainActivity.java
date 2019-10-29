@@ -9,8 +9,12 @@ import org.json.JSONObject;
 import java.util.Vector;
 import android.os.Bundle;
 import org.json.JSONArray;
+
+import com.android.volley.toolbox.JsonArrayRequest;
 import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.Volley;
+import com.android.volley.VolleyError;
+
 
 public class MainActivity extends AppCompatActivity {
 
@@ -26,33 +30,19 @@ public class MainActivity extends AppCompatActivity {
         RequestQueue requestQueue = Volley.newRequestQueue(this);
 
         // 2. construct request
-        JsonObjectRequest jsonObjectRequest = new JsonObjectRequest(
-                Request.Method.GET, baseUrl, null, new Response.Listener<JSONObject>() {
-            @Override
-            public void onResponse(JSONObject response) {
-                try {
-                    // 2.a. response logic - store response to a vector array
-                    Vector newsData = new Vector();
-                    JSONArray array = response.getJSONArray("articles");
-                    System.out.println(array);
-                    for (int i = 0; i < array.length(); i++) {
-
-//                        NewsData news = new NewsData();
-//                        news.setData(array.getJSONObject(i));
-//                        newsData.add(news);
+        JsonArrayRequest jsonArrayRequest = new JsonArrayRequest
+                (Request.Method.GET, baseUrl, null, new Response.Listener<JSONArray>() {
+                    @Override
+                    public void onResponse(JSONArray response) {
+                        System.out.println(response);
                     }
-//                    setView(newsData);
-                } catch (Exception e) {
-                    System.out.println("Logged from JsonObjectRequest() in NewsRestApi.java: " + e);
-                }
-            }
-        }, new Response.ErrorListener() {
-            @Override
-            public void onErrorResponse(VolleyError error) {
-                System.out.println(error);
-            }
-        });
+                }, new Response.ErrorListener() {
+                    @Override
+                    public void onErrorResponse(VolleyError error) {
+                        System.out.println("Logged from onErrorResponse() in MainActivity.java " + error);
+                    }
+                });
         // 3. add request to request queue
-        requestQueue.add(jsonObjectRequest);
+        requestQueue.add(jsonArrayRequest);
     }
 }
