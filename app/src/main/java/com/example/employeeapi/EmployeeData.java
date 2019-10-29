@@ -1,6 +1,5 @@
 package com.example.employeeapi;
 
-import org.json.JSONArray;
 import org.json.JSONObject;
 
 public class EmployeeData {
@@ -31,7 +30,6 @@ public class EmployeeData {
             this.positionName = object.getJSONObject("Position").getString("PositionName");
             this.positionBaseSalary = object.getJSONObject("Position").getString("PositionBaseSalary");
             this.hireDate = object.getString("HireDate");
-
         } catch(Exception e) {
             System.out.println("Logged from setData() in EmployeeData.java " + e);
         }
@@ -59,6 +57,6 @@ public class EmployeeData {
         return this.positionBaseSalary;
     }
     public String getHireDate(){
-        return this.hireDate;
+        return this.hireDate.substring(0, 10);
     }
 }

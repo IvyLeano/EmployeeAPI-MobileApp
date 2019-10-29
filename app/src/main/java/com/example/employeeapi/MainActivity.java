@@ -34,7 +34,19 @@ public class MainActivity extends AppCompatActivity {
                 (Request.Method.GET, baseUrl, null, new Response.Listener<JSONArray>() {
                     @Override
                     public void onResponse(JSONArray response) {
-                        System.out.println(response);
+                        try {
+                            // 2.a. response logic - store response to a vector array
+                            Vector employees = new Vector();
+
+                            for (int i = 0; i < response.length(); i++) {
+                                EmployeeData employee = new EmployeeData();
+                                employee.setData(response.getJSONObject(i));
+                                employees.add(employee);
+                            }
+                            setView(employees);
+                        } catch(Exception e) {
+                            System.out.println("Logged from JsonArrayRequest() in MainActivity.java: " + e);
+                        }
                     }
                 }, new Response.ErrorListener() {
                     @Override
@@ -44,5 +56,15 @@ public class MainActivity extends AppCompatActivity {
                 });
         // 3. add request to request queue
         requestQueue.add(jsonArrayRequest);
+    }
+
+    public void setView(Vector employees) {
+        for(int i = 0; i < employees.size(); i++){
+            EmployeeData employee = (EmployeeData) employees.get(i);
+
+            System.out.println(employee.getHireDate());
+
+
+        }
     }
 }
