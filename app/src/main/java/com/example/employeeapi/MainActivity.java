@@ -8,6 +8,11 @@ import com.android.volley.VolleyError;
 import org.json.JSONObject;
 import java.util.Vector;
 import android.os.Bundle;
+import android.view.Gravity;
+import android.widget.TableLayout;
+import android.widget.TableRow;
+import android.widget.TextView;
+
 import org.json.JSONArray;
 
 import com.android.volley.toolbox.JsonArrayRequest;
@@ -58,12 +63,29 @@ public class MainActivity extends AppCompatActivity {
         requestQueue.add(jsonArrayRequest);
     }
 
+    //TODO 1: fix the setView to add data to table view
     public void setView(Vector employees) {
+        TableLayout tableLayout = findViewById(R.id.table_layout);
         for(int i = 0; i < employees.size(); i++){
             EmployeeData employee = (EmployeeData) employees.get(i);
+            TableRow tableRow = new TableRow(this);
 
-            System.out.println(employee.getHireDate());
+            TextView empNum = new TextView(this);
+            empNum.setText(employee.getEmployeeID());
+            empNum.setPadding(20, 20, 20, 20);
 
+            TextView empName = new TextView(this);
+            empName.setText(employee.getFullName());
+            empName.setGravity(Gravity.LEFT);
+            empName.setPadding(3,3,3,3);
+
+            tableRow.addView(empNum);
+            tableRow.addView(empName);
+
+            tableLayout.addView(tableRow);
+
+//                ToDo 4: add button for more employee info activity for content
+//                ToDo 5: add button for add new employee
 
         }
     }

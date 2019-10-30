@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+<!--    <TextView-->
+<!--        android:layout_column="3"-->
+<!--        android:padding="3dip"-->
+<!--        android:text="Phone Number" />-->
+<!--    <TextView-->
+<!--        android:layout_column="4"-->
+<!--        android:padding="3dip"-->
+<!--        android:text="Address" />-->
+<!--    <TextView-->
+<!--        android:layout_column="5"-->
+<!--        android:padding="3dip"-->
+<!--        android:text="Position Name" />-->
+<!--    <TextView-->
+<!--        android:layout_column="6"-->
+<!--        android:padding="3dip"-->
+<!--        android:text="Position Salary" />-->
+<!--    <TextView-->
+<!--        android:layout_column="7"-->
+<!--        android:padding="3dip"-->
+<!--        android:text="Hire Date" />-->
+
+</LinearLayout>

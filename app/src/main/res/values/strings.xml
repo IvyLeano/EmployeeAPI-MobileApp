@@ -1,3 +1,6 @@
 <resources>
     <string name="app_name">EmployeeAPI</string>
+    <string name="employee_number">Employee Number</string>
+    <string name="full_name">Full Name</string>
+    <string name="employee_database">Employee Database</string>
 </resources>
